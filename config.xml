@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "pe.com.irauldf.CSMM"
+    version   = "1.0.0">
+
+<name>Coope Móvil SMM</name>
+
+<description>
+Coope Móvil SMM
+</description>
+
+<author href="http://www.intisolutionsdev.com" email="raul@intisolutionsdev.com">
+Raúl Delgado F.
+</author>
+
+<preference name="phonegap-version" value="3.6.3" />
+<preference name="load-url-timeout" value="15000" />
+<preference name="StatusBarOverlaysWebView" value="true" />
+<preference name="StatusBarBackgroundColor" value="#000000" />
+
+<access origin="*" />
+<icon src="icon.png" />
+<!-- Plugins -->
+<!-- <gap:plugin name="com.adobe.plugins.pushplugin" /> -->
+<gap:plugin name="com.phonegap.plugin.statusbar" />
+
+<!-- Features -->
+<!--<feature name="http://api.phonegap.com/1.0/battery"/>
+<feature name="http://api.phonegap.com/1.0/camera"/>
+<feature name="http://api.phonegap.com/1.0/contacts"/>
+<feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+<feature name="http://api.phonegap.com/1.0/media"/>
+<feature name="http://api.phonegap.com/1.0/network"/>
+<feature name="http://api.phonegap.com/1.0/notification"/>-->
+  
+<!-- Icons -->
+<icon src="icons/ios/icon.png" width="57" height="57" />
+<icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+<icon src="icons/ios/icon_at_2x.png" width="114" height="114" />
+<icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+<icon src="icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+<icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+
+<!-- Splash Screens -->
+<gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
+<gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
+<gap:splash src="splash/ios/Default.png" width="320" height="480" />
+<gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
+<gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+<gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+<gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+
+</widget>
