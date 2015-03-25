@@ -14,7 +14,7 @@ Coope Móvil SMM
 Raúl Delgado F.
 </author>
 
-<preference name="phonegap-version" value="3.6.3" />
+<preference name="phonegap-version" value="3.7.0" />
 <preference name="load-url-timeout" value="15000" />
 <preference name="StatusBarOverlaysWebView" value="true" />
 <preference name="StatusBarBackgroundColor" value="#000000" />
