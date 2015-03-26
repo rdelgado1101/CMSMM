@@ -77,8 +77,9 @@ var app = {
 					//alert(data);
                     if (data != null) {
                         app.hideLoadingMessage();
-						if(data.Mensaje != null){
+						if(data.mensaje != null){
 							alert(data.codigo + " : " + data.mensaje);
+							$('#txtPIN').val("");
 							//app.vibrate();
 						}else{
 							$("#hdfCodigo").val(data.Codigo);//obtener del login
@@ -138,7 +139,7 @@ var app = {
 				console.log(data);
 				var strRegistros = '';
 				if (data != null) {
-					if(data.Mensaje != null){
+					if(data.mensaje != null){
 						app.hideLoadingMessage();
 						alert(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
@@ -204,7 +205,7 @@ var app = {
 				//alert(data);
 				console.log(data);
 				if (data != null) {
-					if(data.Mensaje != null){
+					if(data.mensaje != null){
 						app.hideLoadingMessage();
 						alert(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
@@ -269,7 +270,7 @@ var app = {
 				//alert(data);
 				console.log(data);				
 				if (data != null) {
-					if(data.Mensaje != null){
+					if(data.mensaje != null){
 						app.hideLoadingMessage();
 						alert(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
@@ -337,7 +338,7 @@ var app = {
 				//alert(data);
 				console.log(data);
 				if (data != null) {
-					if(data.Mensaje != null){
+					if(data.mensaje != null){
 						app.hideLoadingMessage();		
 						alert(data.codigo + " : " + data.mensaje);				
 						//app.vibrate();
@@ -409,7 +410,7 @@ var app = {
 				//alert(data);
 				console.log(data);
 				if (data != null) {
-					if(data.Mensaje != null){
+					if(data.mensaje != null){
 						app.hideLoadingMessage();
 						alert(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
@@ -482,7 +483,7 @@ var app = {
 				//alert(data);
 				console.log(data);
 				if (data != null) {		
-					if(data.Mensaje != null){
+					if(data.mensaje != null){
 						app.hideLoadingMessage();
 						alert(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
