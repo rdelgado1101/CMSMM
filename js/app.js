@@ -1,11 +1,12 @@
 // Parámetros del aplicativo
 //var ServicesURL = "http://190.41.40.187:55000/rest/";
-var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
+//var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
+var ServicesURL = "http://10.0.3.2:8080/ConsultasWeb/rest/";
 
 // Métodos a ejecutarse al levantar la página
-$('#notifications').live('pageshow', function () {
-    app.getLatestNotifications();
-});
+// $('#notifications').live('pageshow', function () {
+//     app.getLatestNotifications();
+// });
 
 var app = {
 	setPIN: function(caracter){
@@ -27,20 +28,20 @@ var app = {
     },
     onDeviceReady: function () {
         // Device ready
-        app.receivedEvent('deviceready');
+        // app.receivedEvent('deviceready');
 
         // Fastclick
         FastClick.attach(document.body);
 
         // Obtener data
-        app.bindData();
+        // app.bindData();
     },
-    receivedEvent: function (id) {
+    // receivedEvent: function (id) {
         //
-    },
-    bindData: function () {
+    // },
+    // bindData: function () {
 		
-    },
+    // },
     login: function () {
         // Recuperar data del formulario
         var strNroTarjeta = $('#txtNroTarjeta').val();
