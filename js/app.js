@@ -1,7 +1,8 @@
+//8801980000443728 
 // Parámetros del aplicativo
 //var ServicesURL = "http://190.41.40.187:55000/rest/";
-//var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
-var ServicesURL = "http://10.0.3.2:8080/ConsultasWeb/rest/";
+var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
+//var ServicesURL = "http://10.0.3.2:8080/ConsultasWeb/rest/";
 
 // Métodos a ejecutarse al levantar la página
 // $('#notifications').live('pageshow', function () {
@@ -9,6 +10,14 @@ var ServicesURL = "http://10.0.3.2:8080/ConsultasWeb/rest/";
 // });
 
 var app = {
+	setCC: function(){
+		var strCC = $("#txtNroTarjeta").val();
+		//alert(strCC);
+		if(strPIN.length < 16){
+			//strCC += caracter;
+			//$("#txtNroTarjeta").val(strCC);
+		}
+	},
 	setPIN: function(caracter){
 		var strPIN = $("#txtPIN").val();
 		strPIN += caracter;
@@ -149,6 +158,7 @@ var app = {
 						try{
 							if(isNaN(data.cuentas.length)){
 								strRegistros = strRegistros + '<tr style="font-size:10px">'; 
+								strRegistros = strRegistros + '<td><a  style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  data.cuentas.IdAhorro + ')">' + data.cuentas.IdAhorro + '</a></td>'; 
 								strRegistros = strRegistros + '<td><a  style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  data.cuentas.IdAhorro + ')">' + data.cuentas.Descripcion + '</a></td>'; 
 								strRegistros = strRegistros + '<td>' + data.cuentas.Saldo + '</td>'; 
 								strRegistros = strRegistros + '<td>' + data.cuentas.Moneda + '</td>'; 
@@ -157,6 +167,7 @@ var app = {
 							}else{						
 								$.each(data.cuentas, function (index, item) {
 									strRegistros = strRegistros + '<tr style="font-size:10px">'; 
+									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  item.IdAhorro + ')">' + item.IdAhorro + '</a></td>'; 
 									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  item.IdAhorro + ')">' + item.Descripcion + '</a></td>'; 
 									strRegistros = strRegistros + '<td>' + item.Saldo + '</td>'; 
 									strRegistros = strRegistros + '<td>' + item.Moneda + '</td>'; 
