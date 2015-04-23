@@ -1,8 +1,7 @@
 //8801980000443728 
 // Parámetros del aplicativo
-//var ServicesURL = "http://190.41.40.187:55000/rest/";
-var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
-//var ServicesURL = "http://10.0.3.2:8080/ConsultasWeb/rest/";
+//var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
+var ServicesURL = "http://190.41.40.187:55000/rest/";
 
 // Métodos a ejecutarse al levantar la página
 // $('#notifications').live('pageshow', function () {
@@ -40,7 +39,7 @@ var app = {
         // app.receivedEvent('deviceready');
 
         // Fastclick
-        FastClick.attach(document.body);
+        //FastClick.attach(document.body);
 
         // Obtener data
         // app.bindData();
