@@ -64,11 +64,11 @@
         </div>
         <div data-role="content">
             <div class="loginarea">
-				<h1>Cooperativa Móvil SMM</h1>
+				<h1>Cooperativa Móvil Santa María Magdalena</h1>
                 <div class="login-sub">
                     <div class="csubtitle">Nro. de Tarjeta:</div>
                     <div class="csubinfo">
-                        <input type="text" id="txtNroTarjeta" maxlength="16" value='88019800' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                        <input type="text" id="txtNroTarjeta" maxlength="16" value='8801980000000866' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					</div>
                 </div>
                 <div class="login-sub">
@@ -129,13 +129,15 @@
 					<thead>
 						<th>Cuenta</th>
 						<th>Descripción</th>
-						<th>Monto</th>
+						<th>Saldo</th>
 						<th>Moneda</th>
 						<!--th>Movimientos</th-->
 					</thead>
 					<tbody id="tbCuentasAhorro">
 					</tbody>
 				</table>
+				<br/>
+				<h2 id="lblMensajeCuentasAhorro">x</h2>
 			</div> 
             <!-- / Text Area -->
         </div>
@@ -172,6 +174,8 @@
 					<tbody id="tbMovimientosAhorro">
 					</tbody>
 				</table>
+				<br/>
+				<h2 id="lblMensajeMovimientosAhorro">x</h2>
 			</div>
 		</div><!-- /content -->
 	</div>
@@ -204,14 +208,15 @@
 				<table data-role="table" data-mode="columntoggle" class="ui-responsive" style="font-size:10px">
 					<thead>
 						<th>Descripción</th>
-						<th>Monto</th>
-						<th>Moneda</th>
-						<th>&nbsp;</th>
+						<th>Desembolso</th>
+						<th>Deuda Total</th>
 						<th>&nbsp;</th>
 					</thead>
 					<tbody id="tbPrestamos">
 					</tbody>
 				</table>
+				<br/>
+				<h2 id="lblMensajePrestamos">x</h2>
 			</div> 
 			<!-- / Text Area -->
 		</div>
@@ -246,9 +251,9 @@
 			<div data-role="content"> 
 				<table data-role="table" data-mode="columntoggle" class="ui-responsive" style="font-size:10px">
 					<thead>
+						<th>#</th>
 						<th>Fecha</th>
 						<th>Capital</th>
-						<th>Cuota</th>
 						<th>Interés</th>
 						<th>Mora</th>
 						<th>Cargo</th>
@@ -257,6 +262,8 @@
 					<tbody id="tbPagosPrestamo">
 					</tbody>
 				</table>
+				<br/>
+				<h2 id="lblMensajePagosPrestamos">x</h2>
 			</div> 
 			<!-- / Text Area -->
 		</div>
@@ -292,9 +299,9 @@
 			<div data-role="content"> 
 				<table data-role="table" data-mode="columntoggle" class="ui-responsive" style="font-size:10px">
 					<thead>
+						<th>#</th>
 						<th>Fecha</th>
 						<th>Capital</th>
-						<th>Cuota</th>
 						<th>Interés</th>
 						<th>Mora</th>
 						<th>Cargo</th>
@@ -303,6 +310,8 @@
 					<tbody id="tbCuotasPrestamo">
 					</tbody>
 				</table>
+				<br/>
+				<h2 id="lblMensajeCuotasPrestamos">x</h2>
 			</div> 
 			<!-- / Text Area -->
 		</div>
@@ -337,12 +346,14 @@
 				<table data-role="table" data-mode="columntoggle" class="ui-responsive" style="font-size:10px">
 					<thead>
 						<th>Fecha</th>
-						<th>Monto</th>
+						<th>Saldo</th>
 						<th>Voucher</th>
 					</thead>
 					<tbody id="tbFPS">
 					</tbody>
 				</table>
+				<br/>
+				<h2 id="lblMensajeFPS">x</h2>
 			</div> 
 			<!-- / Text Area -->
 		</div>

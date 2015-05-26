@@ -1,4 +1,4 @@
-//8801980000443728 
+//8801980000000866  movimientosprestamos
 // Parámetros del aplicativo
 //var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
 var ServicesURL = "http://190.41.40.187:55000/rest/";
@@ -132,6 +132,8 @@ var app = {
 		var strCodigo = $("#hdfCodigo").val();
 		var strToken = $("#hdfToken").val();
 		$("#tbCuentasAhorro").empty();
+		$("#lblMensajeCuentasAhorro").empty();
+		
 		// Ir a la pagina de home
 		$.mobile.changePage("#home", {transition: "fade", reverse: false, changeHash: false});
         app.showLoadingMessage("Obteniendo cuentas...");
@@ -150,7 +152,8 @@ var app = {
 				if (data != null) {
 					if(data.mensaje != null){
 						app.hideLoadingMessage();
-						alert(data.codigo + " : " + data.mensaje);
+						//alert(data.codigo + " : " + data.mensaje);
+						$("#lblMensajeCuentasAhorro").text(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
 					}else{
 						// Ocultar mensaje de carga
@@ -200,6 +203,7 @@ var app = {
 		var strCodigo = $("#hdfCodigo").val();
 		var strToken = $("#hdfToken").val();
 		$("#tbMovimientosAhorro").empty();
+		$("#lblMensajeMovimientosAhorro").empty();
 		$.mobile.changePage("#movimientosAhorro", {transition: "fade",reverse: false,changeHash: false});
 		
         app.showLoadingMessage("Obteniendo movimientos...");
@@ -218,7 +222,8 @@ var app = {
 				if (data != null) {
 					if(data.mensaje != null){
 						app.hideLoadingMessage();
-						alert(data.codigo + " : " + data.mensaje);
+						//alert(data.codigo + " : " + data.mensaje);
+						$("#lblMensajeMovimientosAhorro").text(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
 					}else{
 						// Ocultar mensaje de carga
@@ -228,14 +233,14 @@ var app = {
 								strRegistros = strRegistros + '<tr style="font-size:10px">'; 
 								strRegistros = strRegistros + '<td>' + app.formatearFecha(data.prestamos.Fecha) + '</td>'; 
 								strRegistros = strRegistros + '<td>' + data.prestamos.Descripcion + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.prestamos.Monto * 1.0).toFixed(2) + '</td>';
+								strRegistros = strRegistros + '<td style="color:#FF0000">' + (data.prestamos.Monto * 1.0).toFixed(2) + '</td>';
 								strRegistros = strRegistros + '</tr>'; 
 							}else{
 								$.each(data.prestamos, function (index, item) {
 									strRegistros = strRegistros + '<tr style="font-size:10px">'; 
 									strRegistros = strRegistros + '<td>' + app.formatearFecha(item.Fecha) + '</td>'; 
 									strRegistros = strRegistros + '<td>' + item.Descripcion + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Monto * 1.0).toFixed(2) + '</td>';
+									strRegistros = strRegistros + '<td style="color:#FF0000">' + (item.Monto * 1.0).toFixed(2) + '</td>';
 									strRegistros = strRegistros + '</tr>'; 
 								});
 							}
@@ -266,6 +271,8 @@ var app = {
 		var strCodigo = $("#hdfCodigo").val();
 		var strToken = $("#hdfToken").val();
 		$("#tbPrestamos").empty();
+		$("#lblMensajePrestamos").empty();
+		
 		// Ir a la pagina de home
 		$.mobile.changePage("#prestamos", {transition: "fade", reverse: false, changeHash: false});
         app.showLoadingMessage("Obteniendo préstamos...");
@@ -283,7 +290,8 @@ var app = {
 				if (data != null) {
 					if(data.mensaje != null){
 						app.hideLoadingMessage();
-						alert(data.codigo + " : " + data.mensaje);
+						//alert(data.codigo + " : " + data.mensaje);
+						$("#lblMensajePrestamos").text(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
 					}else{
 						// Ocultar mensaje de carga
@@ -292,19 +300,21 @@ var app = {
 							if(isNaN(data.prestamos.length)){
 								strRegistros = strRegistros + '<tr style="font-size:10px">'; 
 								strRegistros = strRegistros + '<td style="font-size:9px">' + data.prestamos.Descripcion + '</td>'; 
-								strRegistros = strRegistros + '<td style="font-size:9px">' + (data.prestamos.Saldo * 1.0).toFixed(2) + '</td>'; 
-								strRegistros = strRegistros + '<td style="font-size:9px">' + data.prestamos.Moneda + '</td>'; 
-								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  data.prestamos.IdPrestamo + ')">Pagos</a></td>'; 
-								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">Cuotas</a></td>'; 
+								strRegistros = strRegistros + '<td style="font-size:9px">' + (data.prestamos.Desembolso * 1.0).toFixed(2) + '</td>'; 
+								strRegistros = strRegistros + '<td style="font-size:9px">' + (data.prestamos.DeudaTotal * 1.0).toFixed(2) + '</td>'; 
+								//strRegistros = strRegistros + '<td style="font-size:9px">' + data.prestamos.Moneda + '</td>'; 
+								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  data.prestamos.IdPrestamo + ')">PAGOS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
+								//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
 								strRegistros = strRegistros + '</tr>'; 
 							}else{
 								$.each(data.prestamos, function (index, item) {
 									strRegistros = strRegistros + '<tr style="font-size:10px">'; 
 									strRegistros = strRegistros + '<td style="font-size:9px">' + item.Descripcion + '</td>'; 
-									strRegistros = strRegistros + '<td style="font-size:9px">' + (item.Saldo * 1.0).toFixed(2) + '</td>'; 
-									strRegistros = strRegistros + '<td style="font-size:9px">' + item.Moneda + '</td>'; 
-									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  item.IdPrestamo + ')">Pagos</a></td>'; 
-									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">Cuotas</a></td>'; 
+									strRegistros = strRegistros + '<td style="font-size:9px">' + (item.Desembolso * 1.0).toFixed(2) + '</td>'; 
+									strRegistros = strRegistros + '<td style="font-size:9px">' + (item.DeudaTotal * 1.0).toFixed(2) + '</td>'; 
+									//strRegistros = strRegistros + '<td style="font-size:9px">' + item.Moneda + '</td>'; 
+									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  item.IdPrestamo + ')">PAGOS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
+									//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
 									strRegistros = strRegistros + '</tr>'; 
 								});
 							}
@@ -334,6 +344,7 @@ var app = {
 		var strCodigo = $("#hdfCodigo").val();
 		var strToken = $("#hdfToken").val();
 		$("#tbPagosPrestamo").empty();
+		$("#lblMensajePagosPrestamos").empty();
 		// Ir a la pagina de home
 		$.mobile.changePage("#pagosprestamo", {transition: "fade", reverse: false, changeHash: false});
         app.showLoadingMessage("Obteniendo pagos...");
@@ -351,7 +362,8 @@ var app = {
 				if (data != null) {
 					if(data.mensaje != null){
 						app.hideLoadingMessage();		
-						alert(data.codigo + " : " + data.mensaje);				
+						//alert(data.codigo + " : " + data.mensaje);
+						$("#lblMensajePagosPrestamos").text(data.codigo + " : " + data.mensaje);		
 						//app.vibrate();
 					}else{
 						// Ocultar mensaje de carga
@@ -359,9 +371,9 @@ var app = {
 						try{
 							if(isNaN(data.prestamos.length)){
 								strRegistros = strRegistros + '<tr style="font-size:10px">'; 
+								strRegistros = strRegistros + '<td>' + data.prestamos.Cuota + '</td>'; 
 								strRegistros = strRegistros + '<td>' + app.formatearFecha(data.prestamos.Fecha) + '</td>'; 
 								strRegistros = strRegistros + '<td>' + (data.prestamos.Capital * 1.0).toFixed(2) + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.prestamos.Cuota * 1.0).toFixed(2) + '</td>'; 
 								strRegistros = strRegistros + '<td>' + (data.prestamos.Interes * 1.0).toFixed(2) + '</td>'; 
 								strRegistros = strRegistros + '<td>' + (data.prestamos.Mora * 1.0).toFixed(2) + '</td>'; 
 								strRegistros = strRegistros + '<td>' + (data.prestamos.Cargo * 1.0).toFixed(2) + '</td>'; 
@@ -370,9 +382,9 @@ var app = {
 							}else{
 								$.each(data.prestamos, function (index, item) {
 									strRegistros = strRegistros + '<tr style="font-size:10px">'; 
+									strRegistros = strRegistros + '<td>' + item.Cuota + '</td>'; 
 									strRegistros = strRegistros + '<td>' + app.formatearFecha(item.Fecha) + '</td>'; 
 									strRegistros = strRegistros + '<td>' + (item.Capital * 1.0).toFixed(2) + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Cuota * 1.0).toFixed(2) + '</td>'; 
 									strRegistros = strRegistros + '<td>' + (item.Interes * 1.0).toFixed(2) + '</td>'; 
 									strRegistros = strRegistros + '<td>' + (item.Mora * 1.0).toFixed(2) + '</td>'; 
 									strRegistros = strRegistros + '<td>' + (item.Cargo * 1.0).toFixed(2) + '</td>'; 
@@ -406,6 +418,7 @@ var app = {
 		var strCodigo = $("#hdfCodigo").val();
 		var strToken = $("#hdfToken").val();
 		$("#tbCuotasPrestamo").empty();
+		$("#lblMensajeCuotasPrestamos").empty();
 		// Ir a la pagina de home
 		$.mobile.changePage("#cuotasprestamo", {transition: "fade", reverse: false, changeHash: false});
         app.showLoadingMessage("Obteniendo cuotas...");
@@ -423,33 +436,51 @@ var app = {
 				if (data != null) {
 					if(data.mensaje != null){
 						app.hideLoadingMessage();
-						alert(data.codigo + " : " + data.mensaje);
+						//alert(data.codigo + " : " + data.mensaje);
+						$("#lblMensajeCuotasPrestamos").text(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
 					}else{
 					
 						// Ocultar mensaje de carga
 						var strRegistros = '';
+						var strInicioColor = ''; var strFinColor = '';
 						try{
 							if(isNaN(data.cuotapendiente.length)){
+								if(app.esMenorQueFechaActual(data.cuotapendiente.Fecha)){
+									strInicioColor = '<font color="#E00000">';
+									strFinColor = '</font>';
+								}else{
+									strInicioColor = '';
+									strFinColor = '';
+								}
+								
 								strRegistros = strRegistros + '<tr style="font-size:10px">'; 
-								strRegistros = strRegistros + '<td>' + app.formatearFecha(data.cuotapendiente.Fecha) + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.cuotapendiente.Capital * 1.0).toFixed(2) + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.cuotapendiente.Cuota * 1.0).toFixed(2) + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.cuotapendiente.Interes * 1.0).toFixed(2) + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.cuotapendiente.Mora * 1.0).toFixed(2) + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.cuotapendiente.Cargo * 1.0).toFixed(2) + '</td>'; 
-								strRegistros = strRegistros + '<td>' + (data.cuotapendiente.Total * 1.0).toFixed(2) + '</td>'; 
+								strRegistros = strRegistros + '<td>' + strInicioColor + data.cuotapendiente.Cuota + strFinColor + '</td>'; 
+								strRegistros = strRegistros + '<td>' + strInicioColor + app.formatearFecha(data.cuotapendiente.Fecha) + strFinColor + '</td>'; 
+								strRegistros = strRegistros + '<td>' + strInicioColor + (data.cuotapendiente.Capital * 1.0).toFixed(2) + strFinColor + '</td>'; 
+								strRegistros = strRegistros + '<td>' + strInicioColor + (data.cuotapendiente.Interes * 1.0).toFixed(2) + strFinColor + '</td>'; 
+								strRegistros = strRegistros + '<td>' + strInicioColor + (data.cuotapendiente.Mora * 1.0).toFixed(2) + strFinColor + '</td>'; 
+								strRegistros = strRegistros + '<td>' + strInicioColor + (data.cuotapendiente.Cargo * 1.0).toFixed(2) + strFinColor + '</td>'; 
+								strRegistros = strRegistros + '<td>' + strInicioColor + (data.cuotapendiente.Total * 1.0).toFixed(2) + strFinColor + '</td>'; 
 								strRegistros = strRegistros + '</tr>'; 
 							}else{
 								$.each(data.cuotapendiente, function (index, item) {
+									if(app.esMenorQueFechaActual(item.Fecha)){
+										strInicioColor = '<font color="#E00000">';
+										strFinColor = '</font>';
+									}else{
+										strInicioColor = '';
+										strFinColor = '';
+									}
+									
 									strRegistros = strRegistros + '<tr style="font-size:10px">'; 
-									strRegistros = strRegistros + '<td>' + app.formatearFecha(item.Fecha) + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Capital * 1.0).toFixed(2) + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Cuota * 1.0).toFixed(2) + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Interes * 1.0).toFixed(2) + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Mora * 1.0).toFixed(2) + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Cargo * 1.0).toFixed(2) + '</td>'; 
-									strRegistros = strRegistros + '<td>' + (item.Total * 1.0).toFixed(2) + '</td>'; 
+									strRegistros = strRegistros + '<td>' + strInicioColor + item.Cuota + strFinColor + '</td>'; 
+									strRegistros = strRegistros + '<td>' + strInicioColor + app.formatearFecha(item.Fecha) + strFinColor + '</td>'; 
+									strRegistros = strRegistros + '<td>' + strInicioColor + (item.Capital * 1.0).toFixed(2) + strFinColor + '</td>';
+									strRegistros = strRegistros + '<td>' + strInicioColor + (item.Interes * 1.0).toFixed(2) + strFinColor + '</td>'; 
+									strRegistros = strRegistros + '<td>' + strInicioColor + (item.Mora * 1.0).toFixed(2) + strFinColor + '</td>'; 
+									strRegistros = strRegistros + '<td>' + strInicioColor + (item.Cargo * 1.0).toFixed(2) + strFinColor + '</td>'; 
+									strRegistros = strRegistros + '<td>' + strInicioColor + (item.Total * 1.0).toFixed(2) + strFinColor + '</td>'; 
 									strRegistros = strRegistros + '</tr>'; 
 								});
 							}
@@ -479,6 +510,8 @@ var app = {
 		var strCodigo = $("#hdfCodigo").val();
 		var strToken = $("#hdfToken").val();
 		$("#tbFPS").empty();
+		$("#lblMensajeFPS").empty();
+		
 		// Ir a la pagina de home
 		$.mobile.changePage("#fps", {transition: "fade", reverse: false, changeHash: false});
         app.showLoadingMessage("Obteniendo FPS...");
@@ -496,7 +529,8 @@ var app = {
 				if (data != null) {		
 					if(data.mensaje != null){
 						app.hideLoadingMessage();
-						alert(data.codigo + " : " + data.mensaje);
+						//alert(data.codigo + " : " + data.mensaje);
+						$("#lblMensajeFPS").text(data.codigo + " : " + data.mensaje);
 						//app.vibrate();
 					}else{
 						var strRegistros = '';		
@@ -564,5 +598,19 @@ var app = {
     formatearFecha: function(strFecha){
 		var arrFecha = strFecha.split('-');
 		return (arrFecha[2] + "/" + arrFecha[1] + "/" + arrFecha[0]);
+    },
+    esMenorQueFechaActual: function(strFecha){
+		var d = new Date();
+		var month = d.getMonth()+1;
+		var day = d.getDate();
+
+		var output = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
+		//alert(output);
+		var intFechaActual = (output * 1.0);
+		//alert(intFechaActual); 
+		var arrFecha = strFecha.split('-');
+		var intFechaEnviada = (arrFecha[0] + arrFecha[1] + arrFecha[2]) * 1.0;
+		
+		return (intFechaActual > intFechaEnviada); 
     }	
 };
