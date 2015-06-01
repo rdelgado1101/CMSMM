@@ -87,12 +87,12 @@ var app = {
                     if (data != null) {
                         app.hideLoadingMessage();
 						if(data.mensaje != null){
-							alert(data.codigo + " : " + data.mensaje);
+							alert("No se pudo iniciar sesión. " + data.codigo + " : " + data.mensaje);
 							$('#txtPIN').val("");
 							//app.vibrate();
 						}else{
 							$("#hdfCodigo").val(data.Codigo);//obtener del login
-							//$("#hdfNombreUsuario").val(data.Nomres);
+							//$("#hdfNombreUsuario").val(data.Nombres);
 							$("#lblNombreUsuario").html(data.Nombres);
 							$("#hdfToken").val(data.token);
 
@@ -571,6 +571,9 @@ var app = {
 				app.hideLoadingMessage();
 			}
 		});
+	},
+	mostrarAbout: function(){
+		$.mobile.changePage("#about", {transition: "fade", reverse: false, changeHash: false});		
 	},
     checkConnection: function () {
         var result = navigator.connection.type == Connection.NONE ? 0 : 1;
