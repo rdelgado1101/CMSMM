@@ -303,7 +303,7 @@ var app = {
 								strRegistros = strRegistros + '<td style="font-size:9px">' + (data.prestamos.Desembolso * 1.0).toFixed(2) + '</td>'; 
 								strRegistros = strRegistros + '<td style="font-size:9px">' + (data.prestamos.DeudaTotal * 1.0).toFixed(2) + '</td>'; 
 								//strRegistros = strRegistros + '<td style="font-size:9px">' + data.prestamos.Moneda + '</td>'; 
-								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  data.prestamos.IdPrestamo + ')">PAGOS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
+								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  data.prestamos.IdPrestamo + ')">PAGOS</a><br/><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
 								//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
 								strRegistros = strRegistros + '</tr>'; 
 							}else{
@@ -313,7 +313,7 @@ var app = {
 									strRegistros = strRegistros + '<td style="font-size:9px">' + (item.Desembolso * 1.0).toFixed(2) + '</td>'; 
 									strRegistros = strRegistros + '<td style="font-size:9px">' + (item.DeudaTotal * 1.0).toFixed(2) + '</td>'; 
 									//strRegistros = strRegistros + '<td style="font-size:9px">' + item.Moneda + '</td>'; 
-									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  item.IdPrestamo + ')">PAGOS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
+									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  item.IdPrestamo + ')">PAGOS</a><br/><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
 									//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
 									strRegistros = strRegistros + '</tr>'; 
 								});
