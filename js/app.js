@@ -1,7 +1,7 @@
 //8801980000000866  movimientosprestamos
 // Parámetros del aplicativo
-//var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
-var ServicesURL = "http://190.41.40.187:55000/rest/";
+var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
+//var ServicesURL = "http://190.41.40.187:55000/rest/";
 
 // Métodos a ejecutarse al levantar la página
 // $('#notifications').live('pageshow', function () {
