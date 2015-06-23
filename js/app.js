@@ -160,8 +160,8 @@ var app = {
 						try{
 							if(isNaN(data.cuentas.length)){
 								strRegistros = strRegistros + '<tr style="font-size:10px">'; 
-								strRegistros = strRegistros + '<td><a  style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  data.cuentas.IdAhorro + ')">' + data.cuentas.IdAhorro + '</a></td>'; 
-								strRegistros = strRegistros + '<td><a  style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  data.cuentas.IdAhorro + ')">' + data.cuentas.Descripcion + '</a></td>'; 
+								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  data.cuentas.IdAhorro + ')">' + data.cuentas.IdAhorro + '</a></td>'; 
+								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  data.cuentas.IdAhorro + ')">' + data.cuentas.Descripcion + '</a></td>'; 
 								strRegistros = strRegistros + '<td>' + data.cuentas.Saldo + '</td>'; 
 								strRegistros = strRegistros + '<td>' + data.cuentas.Moneda + '</td>'; 
 								//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verMovimientosAhorros(' +  data.cuentas.IdAhorro + ')">Ver</a></td>'; 
@@ -303,9 +303,18 @@ var app = {
 								strRegistros = strRegistros + '<td style="font-size:9px">' + (data.prestamos.Desembolso * 1.0).toFixed(2) + '</td>'; 
 								strRegistros = strRegistros + '<td style="font-size:9px">' + (data.prestamos.DeudaTotal * 1.0).toFixed(2) + '</td>'; 
 								//strRegistros = strRegistros + '<td style="font-size:9px">' + data.prestamos.Moneda + '</td>'; 
-								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  data.prestamos.IdPrestamo + ')">PAGOS</a><br/><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
+								//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  data.prestamos.IdPrestamo + ')">PAGOS</a><br/><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
 								//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">CUOTAS</a></td>'; 
 								strRegistros = strRegistros + '</tr>'; 
+								
+								strRegistros = strRegistros + '<tr>';
+								strRegistros = strRegistros + '<td></td>'; 
+								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  data.prestamos.IdPrestamo + ')">Ver Pagos</a></td>';
+								
+								strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  data.prestamos.IdPrestamo + ')">Ver Cuotas</a></td>'; 
+								
+								strRegistros = strRegistros + '</tr>'; 
+								//strRegistros = strRegistros + '<tr><td></td><td></td><td></td></tr>'; 
 							}else{
 								$.each(data.prestamos, function (index, item) {
 									strRegistros = strRegistros + '<tr style="font-size:10px">'; 
@@ -313,9 +322,17 @@ var app = {
 									strRegistros = strRegistros + '<td style="font-size:9px">' + (item.Desembolso * 1.0).toFixed(2) + '</td>'; 
 									strRegistros = strRegistros + '<td style="font-size:9px">' + (item.DeudaTotal * 1.0).toFixed(2) + '</td>'; 
 									//strRegistros = strRegistros + '<td style="font-size:9px">' + item.Moneda + '</td>'; 
-									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  item.IdPrestamo + ')">PAGOS</a><br/><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
-									//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
+									//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  item.IdPrestamo + ')">PAGOS</a><br/><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>'; 
+									//strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">CUOTAS</a></td>';									
 									strRegistros = strRegistros + '</tr>'; 
+									
+									strRegistros = strRegistros + '<tr>';
+									strRegistros = strRegistros + '<td></td>'; 
+									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verPagosPrestamo(' +  item.IdPrestamo + ')">Ver Pagos</a></td>';
+									
+									strRegistros = strRegistros + '<td><a style="font-size:9px" href="#" onclick="app.verCuotasPrestamo(' +  item.IdPrestamo + ')">Ver Cuotas</a></td>'; 
+								strRegistros = strRegistros + '</tr>'; 
+								//strRegistros = strRegistros + '<tr><td></td><td></td><td></td></tr>'; 
 								});
 							}
 						}catch(err){
