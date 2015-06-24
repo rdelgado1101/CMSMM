@@ -8,6 +8,11 @@ var ServicesURL = "https://www.coopsantamariaenlinea.com.pe/rest/";
 //     app.getLatestNotifications();
 // });
 
+$(document).bind('mobileinit', function(){
+	$.mobile.metaViewportContent = 'width=device-width';
+});
+
+
 var app = {
 	setCC: function(){
 		var strCC = $("#txtNroTarjeta").val();
